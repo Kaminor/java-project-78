@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 public class StringSchema {
     private final Map<String, Predicate<String>> rules = new LinkedHashMap<>();
 
-    public StringSchema() {}
+    public StringSchema() { }
 
     public StringSchema required() {
         rules.put("required", r -> r != null && !r.trim().isEmpty());
