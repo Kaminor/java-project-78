@@ -16,4 +16,21 @@ public class MapSchema extends BaseSchema<Map> {
         rules.put("sizeof", r -> r.size() == size);
         return this;
     }
+
+    public MapSchema shape(Map<String, ? extends BaseSchema<?>> map) {
+        rules.put("shape", v -> {
+            for (Map.Entry<String, ? extends BaseSchema<?>> entry : map.entrySet()) {
+
+                String key = entry.getKey();
+                BaseSchema<?> schema = entry.getValue();
+                var value = v.get(key);
+
+                if (!schema.isValid(value)) {
+                    return false;
+                }
+            }
+            return true;
+        });
+        return this;
+    }
 }

@@ -4,18 +4,20 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class BaseSchema<T> {
+public class BaseSchema<T> extends Validator {
     protected final Map<String, Predicate<T>> rules = new LinkedHashMap<>();
 
-    public BaseSchema() { }
+    public BaseSchema() {
+        super();
+    }
 
-    public boolean isValid(T value) {
+    public boolean isValid(Object value) {
         if (value == null) {
             return !rules.containsKey("required");
         }
 
         for (Predicate<T> predicate : rules.values()) {
-            if (!predicate.test(value)) {
+            if (!predicate.test((T) value)) {
                 return false;
             }
         }
