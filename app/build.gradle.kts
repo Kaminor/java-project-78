@@ -35,6 +35,8 @@ sonar {
         property("sonar.projectKey", "Kaminor_java-project-78")
         property("sonar.organization", "kaminor")
         property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.issue.ignore.multicriteria", "e1")
         property("sonar.issue.ignore.multicriteria.e1.ruleKey", "kotlin:S6474")
+        property("sonar.issue.ignore.multicriteria.e1.resourceKey", "**/build.gradle.kts")
     }
 }
