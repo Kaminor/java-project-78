@@ -47,8 +47,8 @@ public final class MapSchemaTest {
         Map<String, BaseSchema<String>> schemas = new HashMap<>();
         schemas.put("firstName", v.string().required());
         schemas.put("lastName", v.string().required().minLength(2));
-
         actual.shape(schemas);
+
         Map<String, String> human1 = new HashMap<>();
         human1.put("firstName", "John");
         human1.put("lastName", "Smith");
