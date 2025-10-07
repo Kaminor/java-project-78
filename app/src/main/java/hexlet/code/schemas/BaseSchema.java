@@ -1,4 +1,6 @@
-package hexlet.code;
+package hexlet.code.schemas;
+
+import hexlet.code.Validator;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
