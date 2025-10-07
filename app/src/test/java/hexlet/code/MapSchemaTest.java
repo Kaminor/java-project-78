@@ -10,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public final class MapSchemaTest {
     @Test
     public void nullTest() {
-        MapSchema actual = new MapSchema();
+        Validator validator = new Validator();
+        MapSchema actual = validator.map();
 
         assertTrue(actual.isValid(null));
         actual.required();
@@ -19,7 +20,8 @@ public final class MapSchemaTest {
 
     @Test
     public void notNullTest() {
-        MapSchema actual = new MapSchema();
+        Validator validator = new Validator();
+        MapSchema actual = validator.map();
         var data = new HashMap<String, String>();
         data.put("key", "value");
 
@@ -30,7 +32,8 @@ public final class MapSchemaTest {
 
     @Test
     public void sizeOfTest() {
-        MapSchema actual = new MapSchema();
+        Validator validator = new Validator();
+        MapSchema actual = validator.map();
         var data = new HashMap<String, String>();
         data.put("key", "value");
         data.put("key2", "value2");

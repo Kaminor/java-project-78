@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public final class StringSchemaTest {
     @Test
     public void nullAndEmptyStringTest() {
-        StringSchema actual = new StringSchema();
+        Validator validator = new Validator();
+        StringSchema actual = validator.string();
+
         assertTrue(actual.isValid(null));
         assertTrue(actual.isValid(""));
         assertTrue(actual.isValid("aca"));
@@ -15,7 +17,8 @@ public final class StringSchemaTest {
 
     @Test
     public void nonStringTest() {
-        StringSchema actual = new StringSchema();
+        Validator validator = new Validator();
+        StringSchema actual = validator.string();
         actual.required();
 
         assertFalse(actual.isValid(null));
@@ -25,7 +28,8 @@ public final class StringSchemaTest {
 
     @Test
     public void minLengthTest() {
-        StringSchema actual = new StringSchema();
+        Validator validator = new Validator();
+        StringSchema actual = validator.string();
         actual.required();
         actual.minLength(4);
 
@@ -36,7 +40,8 @@ public final class StringSchemaTest {
 
     @Test
     public void containsTest() {
-        StringSchema actual = new StringSchema();
+        Validator validator = new Validator();
+        StringSchema actual = validator.string();
         actual.required();
 
         assertTrue(actual.contains("what").isValid("what does"));

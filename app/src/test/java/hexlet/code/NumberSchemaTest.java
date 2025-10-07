@@ -9,7 +9,8 @@ public final class NumberSchemaTest {
 
     @Test
     public void notRequiredTest() {
-        NumberSchema actual = new NumberSchema();
+        Validator validator = new Validator();
+        NumberSchema actual = validator.number();
 
         assertTrue(actual.isValid(null));
         assertTrue(actual.isValid(0));
@@ -18,7 +19,8 @@ public final class NumberSchemaTest {
 
     @Test
     public void requiredTest() {
-        NumberSchema actual = new NumberSchema();
+        Validator validator = new Validator();
+        NumberSchema actual = validator.number();
         actual.required();
 
         assertFalse(actual.isValid(null));
@@ -28,7 +30,8 @@ public final class NumberSchemaTest {
 
     @Test
     public void positiveTest() {
-        NumberSchema actual = new NumberSchema();
+        Validator validator = new Validator();
+        NumberSchema actual = validator.number();
         actual.positive();
 
         assertTrue(actual.isValid(null));
@@ -39,7 +42,8 @@ public final class NumberSchemaTest {
 
     @Test
     public void rangeTest() {
-        NumberSchema actual = new NumberSchema();
+        Validator validator = new Validator();
+        NumberSchema actual = validator.number();
         actual.range(20, 55);
 
         assertTrue(actual.isValid(null));
