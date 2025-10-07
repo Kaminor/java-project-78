@@ -17,15 +17,15 @@ public final class MapSchema extends BaseSchema<Map> {
         return this;
     }
 
-    public MapSchema shape(Map<String, ? extends BaseSchema<?>> map) {
+    public <T> MapSchema shape(Map<String, BaseSchema<T>> map) {
         rules.put("shape", v -> {
-            for (Map.Entry<String, ? extends BaseSchema<?>> entry : map.entrySet()) {
+            for (Map.Entry<String, BaseSchema<T>> entry : map.entrySet()) {
 
                 String key = entry.getKey();
-                BaseSchema<?> schema = entry.getValue();
+                BaseSchema<T> schema = entry.getValue();
                 var value = v.get(key);
 
-                if (!schema.isValid(value)) {
+                if (!schema.isValid((T) value)) {
                     return false;
                 }
             }
