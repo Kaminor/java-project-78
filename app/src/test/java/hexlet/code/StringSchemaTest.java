@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public final class StringSchemaTest {
     @Test
-    public void validNullEmptyString() {
+    public void nullAndEmptyStringTest() {
         StringSchema actual = new StringSchema();
         assertTrue(actual.isValid(null));
         assertTrue(actual.isValid(""));
@@ -13,7 +13,7 @@ public final class StringSchemaTest {
     }
 
     @Test
-    public void nonString() {
+    public void nonStringTest() {
         StringSchema actual = new StringSchema();
         actual.required();
 
@@ -23,7 +23,7 @@ public final class StringSchemaTest {
     }
 
     @Test
-    public void minLength() {
+    public void minLengthTest() {
         StringSchema actual = new StringSchema();
         actual.required();
         actual.minLength(4);
@@ -34,7 +34,7 @@ public final class StringSchemaTest {
     }
 
     @Test
-    public void contains() {
+    public void containsTest() {
         StringSchema actual = new StringSchema();
         actual.required();
 

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public final class NumberSchemaTest {
 
     @Test
-    public void validNullEmptyString() {
+    public void notRequiredTest() {
         NumberSchema actual = new NumberSchema();
 
         assertTrue(actual.isValid(null));

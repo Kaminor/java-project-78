@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public final class MapSchemaTest {
     @Test
-    public void validNullMap() {
+    public void nullTest() {
         MapSchema actual = new MapSchema();
 
         assertTrue(actual.isValid(null));
@@ -18,7 +18,7 @@ public final class MapSchemaTest {
     }
 
     @Test
-    public void nullTest() {
+    public void notNullTest() {
         MapSchema actual = new MapSchema();
         var data = new HashMap<String, String>();
         data.put("key", "value");
